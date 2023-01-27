@@ -1,11 +1,37 @@
 {
   "version": 1,
   "projects": {
+    "core": {
+      "projectType": "library",
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "prefix": "app",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core"],
+          "options": {
+            "jestConfig": "libs/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/src/**/*.ts",
+              "libs/core/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "my-app": {
       "projectType": "application",
       "root": "apps/my-app",
       "sourceRoot": "apps/my-app/src",
-      "prefix": "stackblitz-nx-angular",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -62,6 +88,9 @@
             "development": {
               "browserTarget": "my-app:build:development"
             }
+          },
+          "options": {
+            "disableHostCheck": true
           },
           "defaultConfiguration": "development"
         },

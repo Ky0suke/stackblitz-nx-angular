@@ -1,5 +1,5 @@
 {
-  "npmScope": "stackblitz-nx-angular",
+  "npmScope": "app",
   "affected": {
     "defaultBase": "main"
   },
